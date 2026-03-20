@@ -1,9 +1,10 @@
-import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
+import { BlogList } from "@/components/blog/blog-list";
 
 export const metadata = {
   title: "Blog — Samyak",
-  description: "Thoughts on software development, technology, and more.",
+  description:
+    "Thoughts on software development, football, investments, and more.",
 };
 
 export default function BlogPage() {
@@ -16,37 +17,10 @@ export default function BlogPage() {
           Blog
         </h1>
         <p className="mt-3 text-lg text-(--color-muted)">
-          Thoughts on software, technology, and building things.
+          Thoughts on tech, football, and investments.
         </p>
 
-        <div className="mt-16 space-y-12">
-          {posts.length === 0 && (
-            <p className="text-(--color-muted)">No posts yet. Stay tuned!</p>
-          )}
-          {posts.map((post) => (
-            <article key={post.slug}>
-              <Link href={`/blog/${post.slug}`} className="group block">
-                <p className="text-sm text-(--color-muted)">{post.date}</p>
-                <h2 className="mt-1 font-(family-name:--font-heading) text-xl font-semibold group-hover:text-(--color-accent) transition-colors">
-                  {post.title}
-                </h2>
-                <p className="mt-2 text-(--color-muted) leading-relaxed">
-                  {post.description}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-(--color-surface) px-3 py-1 text-xs font-medium text-(--color-muted)"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            </article>
-          ))}
-        </div>
+        <BlogList posts={posts} />
       </div>
     </section>
   );

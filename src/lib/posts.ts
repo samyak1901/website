@@ -1,6 +1,10 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import type { Category } from "./categories";
+
+export type { Category };
+export { CATEGORIES } from "./categories";
 
 const postsDirectory = path.join(process.cwd(), "src/content/posts");
 
@@ -9,13 +13,16 @@ export interface PostMeta {
   title: string;
   date: string;
   description: string;
+  category: Category;
   tags: string[];
 }
 
 export function getAllPosts(): PostMeta[] {
   if (!fs.existsSync(postsDirectory)) return [];
 
-  const files = fs.readdirSync(postsDirectory).filter((f) => f.endsWith(".mdx"));
+  const files = fs
+    .readdirSync(postsDirectory)
+    .filter((f) => f.endsWith(".mdx"));
 
   const posts = files.map((filename) => {
     const slug = filename.replace(/\.mdx$/, "");
@@ -28,6 +35,7 @@ export function getAllPosts(): PostMeta[] {
       title: data.title ?? slug,
       date: data.date ?? "",
       description: data.description ?? "",
+      category: (data.category ?? "tech") as Category,
       tags: data.tags ?? [],
     };
   });
@@ -50,6 +58,7 @@ export function getPostBySlug(slug: string) {
       title: data.title ?? slug,
       date: data.date ?? "",
       description: data.description ?? "",
+      category: (data.category ?? "tech") as Category,
       tags: data.tags ?? [],
     },
     content,

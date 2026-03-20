@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { CATEGORIES } from "@/lib/categories";
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -29,14 +31,6 @@ export default async function BlogPost({
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
-  // Dynamic import of the MDX file
-  let MDXContent;
-  try {
-    MDXContent = (await import(`@/content/posts/${slug}.mdx`)).default;
-  } catch {
-    notFound();
-  }
-
   return (
     <section className="min-h-screen px-6 pt-32 pb-24">
       <article className="mx-auto max-w-3xl">
@@ -48,7 +42,14 @@ export default async function BlogPost({
         </Link>
 
         <header className="mt-8 mb-12">
-          <p className="text-sm text-(--color-muted)">{post.meta.date}</p>
+          <div className="flex items-center gap-3">
+            <p className="text-sm text-(--color-muted)">{post.meta.date}</p>
+            <span
+              className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${CATEGORIES[post.meta.category].color}`}
+            >
+              {CATEGORIES[post.meta.category].label}
+            </span>
+          </div>
           <h1 className="mt-2 font-(family-name:--font-heading) text-4xl font-bold tracking-tight">
             {post.meta.title}
           </h1>
@@ -58,7 +59,7 @@ export default async function BlogPost({
         </header>
 
         <div className="prose prose-neutral max-w-none prose-headings:font-(family-name:--font-heading) prose-headings:tracking-tight prose-a:text-(--color-accent) prose-a:no-underline hover:prose-a:underline">
-          <MDXContent />
+          <MDXRemote source={post.content} />
         </div>
       </article>
     </section>
