@@ -9,7 +9,9 @@ __pycache__/
 dist/
 *.egg-info/
 .python-version
+/node_modules/
 
 # tools
 .claude/
 .direnv/
+.next
