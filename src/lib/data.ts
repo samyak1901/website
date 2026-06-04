@@ -1,101 +1,190 @@
-export const siteConfig = {
-  name: "Samyak",
-  title: "Software Developer",
-  description:
-    "I build thoughtful, performant software with a focus on clean architecture and great user experiences.",
-  email: "hello@samyak.dev",
-  links: {
-    github: "https://github.com/samyak",
-    linkedin: "https://linkedin.com/in/samyak",
-    twitter: "https://x.com/samyak",
-  },
+export const profile = {
+  name: "Samyak Jain",
+  role: "Software & AI Developer",
+  location: "Canberra, ACT, Australia",
+  availability: "Open to relevant software and AI opportunities",
+  email: "samyak1901@gmail.com",
+  resumeUrl: "#",
+  summary:
+    "Software and AI Developer with an Honours degree in Advanced Computing, experienced across backend engineering, data platforms, and applied AI. I design production services, data pipelines, and AI-driven tools for biomedical research, public-health surveillance, and enterprise analytics.",
 };
 
-export const aboutText = [
-  "I'm a software developer who loves building things that live on the internet. I care deeply about clean code, thoughtful architecture, and creating experiences that feel effortless to use.",
-  "When I'm not coding, you'll find me exploring new technologies, contributing to open source, or writing about what I've learned.",
+export const socialLinks = [
+  { label: "LinkedIn", value: "samyak-jain", href: "https://linkedin.com/in/samyak-jain" },
+  { label: "Email", value: profile.email, href: `mailto:${profile.email}` },
+  { label: "GitHub", value: "Add GitHub URL", href: "#" },
 ];
 
-export const skillCategories = [
-  {
-    name: "Languages",
-    skills: ["TypeScript", "Python", "Go", "Rust", "JavaScript"],
+export const siteConfig = {
+  name: profile.name,
+  title: profile.role,
+  description: profile.summary,
+  email: profile.email,
+  links: {
+    github: socialLinks[2].href,
+    linkedin: socialLinks[0].href,
+    twitter: "#",
   },
-  {
-    name: "Frontend",
-    skills: ["React", "Next.js", "Tailwind CSS", "HTML/CSS"],
-  },
-  {
-    name: "Backend",
-    skills: ["Node.js", "PostgreSQL", "Redis", "REST APIs", "GraphQL"],
-  },
-  {
-    name: "Tools",
-    skills: ["Git", "Docker", "Linux", "CI/CD", "AWS"],
-  },
-];
-
-export interface Project {
-  title: string;
-  description: string;
-  tags: string[];
-  github?: string;
-  live?: string;
-}
-
-export const projects: Project[] = [
-  {
-    title: "Project Alpha",
-    description:
-      "A full-stack web application for managing workflows with real-time collaboration features.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "WebSockets"],
-    github: "https://github.com/samyak/project-alpha",
-    live: "https://project-alpha.vercel.app",
-  },
-  {
-    title: "CLI Toolkit",
-    description:
-      "A developer-friendly CLI tool for automating repetitive tasks and scaffolding projects.",
-    tags: ["Go", "Cobra", "REST API"],
-    github: "https://github.com/samyak/cli-toolkit",
-  },
-  {
-    title: "Design System",
-    description:
-      "A component library and design system built for consistency across multiple applications.",
-    tags: ["React", "Storybook", "Tailwind CSS", "Figma"],
-    github: "https://github.com/samyak/design-system",
-    live: "https://design-system-demo.vercel.app",
-  },
-];
+};
 
 export interface Experience {
   role: string;
   company: string;
   period: string;
   description: string;
+  highlights: string[];
+  technologies: string[];
 }
 
 export const experiences: Experience[] = [
   {
-    role: "Senior Software Developer",
-    company: "Tech Corp",
-    period: "2024 — Present",
+    role: "Software / AI Developer",
+    company: "Pacific Analytics Pty Ltd",
+    period: "Dec 2024 - Present",
     description:
-      "Leading frontend architecture and building scalable web applications serving thousands of users.",
+      "Develop backend services, data platforms, and applied AI systems for biomedical research, bioinformatics automation, and public-health surveillance.",
+    highlights: [
+      "Built a genomic cohort-builder platform with dynamic faceted filtering, real-time cohort summaries, distribution analytics, saved cohorts, and streaming exports.",
+      "Built Lumi, a multi-agent AI assistant for bioinformatics research with sub-agent delegation, parallel execution, tool orchestration, permission controls, and run-level auditability.",
+      "Designed cross-session memory and context-management capabilities including durable fact extraction, relevance-based memory retrieval, and automatic context compaction.",
+      "Designed a syndromic surveillance anomaly-detection engine using Z-score and EWMA models, adaptive thresholds, confidence scoring, demographic stratification, and geographic roll-up.",
+      "Delivered secure multi-tenant REST APIs, asynchronous processing pipelines, and service-to-service integrations.",
+    ],
+    technologies: ["Python", "TypeScript", "FastAPI", "PostgreSQL", "Redis", "Docker", "Kubernetes", "AWS"],
   },
   {
-    role: "Software Developer",
-    company: "Startup Inc",
-    period: "2022 — 2024",
+    role: "Data Engineer / Data Analyst",
+    company: "smrtr",
+    period: "Jan 2021 - Nov 2024",
     description:
-      "Built core product features from the ground up, working across the full stack with React and Node.js.",
+      "Progressed from Junior Data Analyst to Data Engineer, delivering data engineering, analytics, and automation solutions for enterprise clients and internal data products.",
+    highlights: [
+      "Built and maintained data pipelines that transformed raw, multi-source data into reliable analytical datasets.",
+      "Developed SQL data models, stored procedures, and reporting layers for customer analytics and segmentation.",
+      "Analysed large customer and behavioural datasets and built dashboards and visualisations for technical and non-technical stakeholders.",
+      "Supported ML and analytics workflows through data preparation, feature engineering, validation, and performance analysis.",
+    ],
+    technologies: ["SQL", "Python", "Power BI", "Tableau", "Data Modelling", "Analytics"],
   },
   {
-    role: "Junior Developer",
-    company: "Agency Co",
-    period: "2020 — 2022",
+    role: "Undergraduate Research Assistant",
+    company: "The Australian National University",
+    period: "Jul 2019 - May 2020",
     description:
-      "Developed client-facing websites and internal tools, gaining experience across diverse tech stacks.",
+      "Developed machine-learning models for predictive modelling research into magnesium alloys with optimal mechanical properties.",
+    highlights: [
+      "Supported research into lightweight vehicle materials through applied machine-learning and predictive-modelling workflows.",
+    ],
+    technologies: ["Machine Learning", "Predictive Modelling", "Python", "Research"],
   },
 ];
+
+export interface Education {
+  degree: string;
+  institution: string;
+  period: string;
+  description: string;
+  details: string[];
+}
+
+export const education: Education[] = [
+  {
+    degree: "Bachelor of Advanced Computing (Honours)",
+    institution: "The Australian National University",
+    period: "2018 - 2021",
+    description:
+      "Specialised in Intelligent Systems with coursework across machine learning, data, software engineering, security, and advanced computing research methods.",
+    details: [
+      "Courses completed include Foundations of Computing, Data Wrangling, Data Mining, Information Theory, Strategic Thinking: Game Theory, Intro to Machine Learning, Document Analysis, Advanced Computing Research Methods, Software Design Methodologies, Intro to Data and Security, Advanced Computing Project, Neural Networks: Deep Learning, Statistical Machine Learning, and Computer Vision.",
+    ],
+  },
+  {
+    degree: "Bachelor of Science",
+    institution: "International Centre for Applied Sciences - Manipal University",
+    period: "2016 - 2018",
+    description:
+      "Completed foundational computer science studies with a research thesis focused on computational alloy design and discovery.",
+    details: [
+      "Research thesis: Computational Alloy Design and Discovery using Magnesium.",
+      "Employed machine-learning models to build a predictive modelling approach for identifying magnesium alloy compositions with desirable mechanical properties for lightweight vehicle materials.",
+    ],
+  },
+];
+
+export const certifications = [
+  "AWS - Machine Learning",
+  "Analyzing and Visualizing Data with Microsoft Power BI",
+];
+
+export const technicalSkills = [
+  {
+    category: "Languages",
+    items: ["Python", "TypeScript", "SQL", "JavaScript", "Rust"],
+  },
+  {
+    category: "AI & ML",
+    items: ["LLM agents", "Tool orchestration", "Multi-agent systems", "Semantic memory / retrieval", "Anomaly detection"],
+  },
+  {
+    category: "Backend & APIs",
+    items: ["FastAPI", "Elysia", "REST microservices", "Pydantic", "SQLAlchemy", "Drizzle ORM"],
+  },
+  {
+    category: "Data",
+    items: ["PostgreSQL", "ClickHouse", "Redis", "pandas", "NumPy"],
+  },
+  {
+    category: "Platform & Security",
+    items: ["Docker", "Kubernetes", "AWS", "Celery", "RabbitMQ", "Keycloak", "OPA"],
+  },
+  {
+    category: "BI & Visualisation",
+    items: ["Microsoft Power BI", "Tableau"],
+  },
+];
+
+export interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  github?: string;
+  live?: string;
+  impact: string;
+}
+
+export const projects: Project[] = [
+  {
+    title: "Genomic Cohort Builder",
+    description:
+      "A research platform for creating, refining, saving, analysing, and exporting study cohorts from large-scale sequencing metadata. Includes dynamic faceted filtering, real-time summaries, distribution analytics, and streaming exports.",
+    technologies: ["TypeScript", "Python", "REST APIs", "PostgreSQL", "Analytics"],
+    github: "#",
+    live: "#",
+    impact: "Biomedical research discovery",
+  },
+  {
+    title: "Lumi Multi-Agent AI Assistant",
+    description:
+      "A multi-agent AI assistant for bioinformatics research with sub-agent delegation, parallel execution, tool orchestration, permission controls, full run-level auditability, and cross-session memory.",
+    technologies: ["LLM Agents", "Vercel AI SDK", "Tool Orchestration", "Semantic Memory", "TypeScript"],
+    github: "#",
+    live: "#",
+    impact: "AI-assisted research automation",
+  },
+  {
+    title: "Syndromic Surveillance Anomaly Detection",
+    description:
+      "An anomaly-detection engine for public-health surveillance using Z-score and EWMA models, adaptive thresholds, confidence scoring, demographic stratification, and geographic roll-up.",
+    technologies: ["Python", "Anomaly Detection", "EWMA", "Z-score", "Data Pipelines"],
+    github: "#",
+    live: "#",
+    impact: "Public-health intelligence",
+  },
+];
+
+export const aboutText = [profile.summary];
+
+export const skillCategories = technicalSkills.map((skillGroup) => ({
+  name: skillGroup.category,
+  skills: skillGroup.items,
+}));

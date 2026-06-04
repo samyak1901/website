@@ -19,7 +19,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         {project.description}
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
+        {project.technologies.map((tag) => (
           <span
             key={tag}
             className="rounded-full bg-(--color-surface) px-3 py-1 text-xs font-medium text-(--color-muted)"

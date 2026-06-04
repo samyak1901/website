@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Samyak — Software Developer",
+  title: "Samyak Jain — Software & AI Developer",
   description:
-    "Portfolio of Samyak, a software developer building modern web experiences.",
+    "Portfolio of Samyak Jain, a Software and AI Developer working across backend engineering, data platforms, and applied AI.",
 };
 
 export default function RootLayout({
