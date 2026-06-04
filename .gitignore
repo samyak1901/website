@@ -16,3 +16,4 @@ dist/
 .direnv/
 .next
 out/
+*.tsbuildinfo
