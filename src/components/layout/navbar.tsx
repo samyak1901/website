@@ -1,14 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { siteConfig } from "@/lib/data";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { profile } from "@/lib/data";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Profile", href: "#profile" },
   { label: "Experience", href: "#experience" },
-  { label: "Blog", href: "/blog" },
+  { label: "Education", href: "#education" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -18,33 +19,30 @@ export function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "border-b border-(--color-border) bg-white/80 backdrop-blur-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a
-          href="/"
-          className="font-(family-name:--font-heading) text-lg font-bold tracking-tight"
-        >
-          {siteConfig.name}
+    <header className="sticky inset-x-0 top-0 z-50 bg-(--color-background)">
+      <nav
+        className={`mx-auto flex max-w-6xl items-center justify-center px-6 py-5 transition-all duration-300 ${
+          scrolled
+            ? "border-b border-(--color-border)"
+            : "border-b border-transparent"
+        }`}
+      >
+        <a href="#profile" className="sr-only">
+          {profile.name}
         </a>
 
-        {/* Desktop nav */}
-        <ul className="hidden gap-8 md:flex">
+        <ul className="hidden items-center justify-center gap-7 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-(--color-muted) transition-colors hover:text-(--color-foreground)"
+                className="text-sm font-medium text-(--color-foreground) transition-colors hover:text-(--color-muted)"
               >
                 {link.label}
               </a>
@@ -52,52 +50,37 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile toggle */}
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex flex-col gap-1.5 md:hidden"
+          type="button"
+          onClick={() => setMobileOpen((open) => !open)}
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-(--color-border) md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
-          <span
-            className={`h-0.5 w-5 bg-(--color-foreground) transition-all ${
-              mobileOpen ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-5 bg-(--color-foreground) transition-all ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-5 bg-(--color-foreground) transition-all ${
-              mobileOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
+          <span className={`h-0.5 w-4 bg-(--color-foreground) transition-transform ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`h-0.5 w-4 bg-(--color-foreground) transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
+          <span className={`h-0.5 w-4 bg-(--color-foreground) transition-transform ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
         </button>
       </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-b border-(--color-border) bg-white md:hidden"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="mx-4 mb-4 rounded-2xl border border-(--color-border) bg-(--color-card) p-3 md:hidden"
           >
-            <ul className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-6">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-(--color-muted) transition-colors hover:text-(--color-foreground)"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block rounded-2xl px-4 py-3 text-(--color-muted) hover:bg-(--color-surface) hover:text-(--color-foreground)"
+              >
+                {link.label}
+              </a>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>

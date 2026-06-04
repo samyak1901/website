@@ -1,38 +1,22 @@
-import { siteConfig } from "@/lib/data";
+import { profile, socialLinks } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-(--color-border)">
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
-        <p className="text-sm text-(--color-muted)">
-          &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
-          reserved.
-        </p>
-        <div className="flex gap-6">
-          <a
-            href={siteConfig.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-(--color-muted) transition-colors hover:text-(--color-foreground)"
-          >
-            GitHub
-          </a>
-          <a
-            href={siteConfig.links.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-(--color-muted) transition-colors hover:text-(--color-foreground)"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={siteConfig.links.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-(--color-muted) transition-colors hover:text-(--color-foreground)"
-          >
-            X / Twitter
-          </a>
+    <footer className="border-t border-(--color-border) bg-(--color-background)">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-(--color-muted) sm:flex-row sm:items-center sm:justify-between">
+        <p>&copy; {new Date().getFullYear()} {profile.name}. Built with Next.js.</p>
+        <div className="flex gap-5">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+              className="link-glow"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
     </footer>

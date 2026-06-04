@@ -4,25 +4,191 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --color-accent: #2563eb;
-  --color-accent-light: #3b82f6;
-  --color-foreground: #0a0a0a;
-  --color-muted: #6b7280;
-  --color-border: #e5e7eb;
-  --color-surface: #f9fafb;
+  --color-background: #10100e;
+  --color-foreground: #ffffe3;
+  --color-muted: #b7b69f;
+  --color-border: #2a2924;
+  --color-card: #151510;
+  --color-surface: #1d1c17;
+  --color-accent: #ef4444;
+  --color-accent-soft: #f97316;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--color-background);
 }
 
 body {
+  min-height: 100vh;
   color: var(--color-foreground);
-  background: #ffffff;
+  background: var(--color-background);
   font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
   background-color: var(--color-accent);
-  color: white;
+  color: var(--color-foreground);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+.hero-grid {
+  opacity: 1;
+  background-image:
+    linear-gradient(var(--color-border) 1.5px, transparent 1.5px),
+    linear-gradient(to right, var(--color-border) 1.5px, transparent 1.5px);
+  background-size: 45px 45px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ffffe3 0%, #fafae9 70%, #f1f1d0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-shell {
+  position: relative;
+  padding: 5rem 0;
+  background: var(--color-background);
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 1.8rem;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.portfolio-card {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  background: #0d0d0c;
+  box-shadow: none;
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.portfolio-card:hover {
+  border-color: rgba(255, 255, 227, 0.18);
+}
+
+.glass-panel {
+  border: 1px solid var(--color-border);
+  background: #0d0d0c;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 999px;
+  background: rgba(239, 68, 68, 0.08);
+  padding: 0.42rem 0.78rem;
+  color: #fecaca;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.78rem 1.15rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.btn-primary {
+  border: 1px solid var(--color-accent);
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.btn-secondary {
+  border: 1px solid var(--color-foreground);
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+.btn-ghost {
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 227, 0.03);
+  color: var(--color-foreground);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-ghost:hover {
+  transform: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-accent);
+}
+
+.link-glow {
+  color: inherit;
+  transition: color 180ms ease, text-shadow 180ms ease;
+}
+
+.link-glow:hover {
+  color: var(--color-foreground);
+  text-shadow: 0 0 12px rgba(255, 255, 227, 0.45);
+}
+
+.timeline-line {
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--color-border), transparent);
+}
+
+.preview-grid {
+  background: #10100e;
+}
+
+@media (max-width: 640px) {
+  .section-shell {
+    padding: 5rem 0;
+  }
 }
