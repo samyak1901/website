@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { profile } from "@/lib/data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
   { label: "Profile", href: "#profile" },
@@ -27,7 +28,7 @@ export function Navbar() {
   return (
     <header className="sticky inset-x-0 top-0 z-50 bg-(--color-background)">
       <nav
-        className={`mx-auto flex max-w-6xl items-center justify-center px-6 py-5 transition-all duration-300 ${
+        className={`mx-auto flex max-w-6xl items-center justify-between px-6 py-5 transition-all duration-300 ${
           scrolled
             ? "border-b border-(--color-border)"
             : "border-b border-transparent"
@@ -37,7 +38,7 @@ export function Navbar() {
           {profile.name}
         </a>
 
-        <ul className="hidden items-center justify-center gap-7 md:flex">
+        <ul className="hidden flex-1 items-center justify-center gap-7 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -50,17 +51,24 @@ export function Navbar() {
           ))}
         </ul>
 
-        <button
-          type="button"
-          onClick={() => setMobileOpen((open) => !open)}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-(--color-border) md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-        >
-          <span className={`h-0.5 w-4 bg-(--color-foreground) transition-transform ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
-          <span className={`h-0.5 w-4 bg-(--color-foreground) transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`h-0.5 w-4 bg-(--color-foreground) transition-transform ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
-        </button>
+        <div className="hidden md:block">
+          <ThemeToggle />
+        </div>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setMobileOpen((open) => !open)}
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-(--color-border)"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            <span className={`h-0.5 w-4 bg-(--color-foreground) transition-transform ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`h-0.5 w-4 bg-(--color-foreground) transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
+            <span className={`h-0.5 w-4 bg-(--color-foreground) transition-transform ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>

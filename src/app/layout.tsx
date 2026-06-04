@@ -22,7 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${GeistSans.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${GeistSans.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {try {const key = 'portfolio-theme'; const saved = localStorage.getItem(key); const theme = saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); document.documentElement.dataset.theme = theme;} catch (_) { document.documentElement.dataset.theme = 'dark'; }})();`,
+          }}
+        />
+      </head>
       <body className="min-h-screen antialiased">
         <Navbar />
         <main>{children}</main>
