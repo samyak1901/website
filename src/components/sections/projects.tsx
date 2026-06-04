@@ -15,7 +15,7 @@ export function Projects() {
           className="text-center"
         >
           <p className="section-kicker justify-center">Projects</p>
-          <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-black tracking-tight text-(--color-foreground) sm:text-5xl">
+          <h2 className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-(--color-muted) sm:text-xl">
             Selected work with clear purpose and polished execution.
           </h2>
         </motion.div>
@@ -45,22 +45,37 @@ export function Projects() {
                       </span>
                     ))}
                   </div>
-                  {project.live !== "#" || project.github !== "#" ? (
+                  {project.live || project.github ? (
                     <div className="mt-7 flex flex-wrap gap-3">
-                      {project.live && project.live !== "#" && <a href={project.live} className="btn-secondary">Live Preview</a>}
-                      {project.github && project.github !== "#" && <a href={project.github} className="btn-ghost">GitHub</a>}
+                      {project.live && (
+                        <a href={project.live} target="_blank" rel="noreferrer" className="btn-secondary">
+                          Live Preview
+                        </a>
+                      )}
+                      {project.github && (
+                        <a href={project.github} target="_blank" rel="noreferrer" className="btn-ghost">
+                          GitHub
+                        </a>
+                      )}
                     </div>
                   ) : (
-                    <p className="mt-7 text-sm text-(--color-muted)">Links can be added when public demos or repositories are available.</p>
+                    <p className="mt-7 text-sm text-(--color-muted)">
+                      Professional project details available on request.
+                    </p>
                   )}
                 </div>
                 <div className="border-t border-(--color-border) p-6 lg:border-t-0 lg:border-l">
-                  <div className="flex h-full min-h-52 flex-col justify-between rounded-xl border border-(--color-border) bg-(--color-background) p-5">
-                    <p className="text-sm text-(--color-muted)">Project preview</p>
-                    <div className="mt-10 space-y-3">
-                      <div className="h-3 w-3/4 rounded-full bg-(--color-foreground)/15" />
-                      <div className="h-3 w-1/2 rounded-full bg-(--color-foreground)/10" />
-                      <div className="h-24 rounded-lg border border-(--color-border) bg-(--color-card)" />
+                  <div className="relative h-full min-h-72 overflow-hidden rounded-xl border border-(--color-border) bg-(--color-background)">
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt}
+                      className="h-full min-h-72 w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 text-white">
+                      <p className="text-xs uppercase tracking-[0.22em] text-white/60">{project.impact}</p>
+                      <p className="mt-2 text-sm leading-6 text-white/80">
+                        {project.technologies.slice(0, 4).join(" / ")}
+                      </p>
                     </div>
                   </div>
                 </div>

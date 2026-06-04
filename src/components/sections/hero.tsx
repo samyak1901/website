@@ -51,8 +51,8 @@ export function Hero() {
           <a href={`mailto:${profile.email}`} className="btn-primary">
             Contact Me
           </a>
-          <a href={profile.resumeUrl} className="btn-secondary">
-            Download CV
+          <a href={profile.resumeUrl} download className="btn-secondary">
+            Download Resume
           </a>
           <a href="#projects" className="btn-ghost">
             View Projects

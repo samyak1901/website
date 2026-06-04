@@ -15,12 +15,9 @@ export function Education() {
           className="max-w-3xl"
         >
           <p className="section-kicker">Education</p>
-          <h2 className="mt-4 text-3xl font-black tracking-tight text-(--color-foreground) sm:text-5xl">
+          <h2 className="mt-4 text-lg leading-8 text-(--color-muted) sm:text-xl">
             Academic foundation and focused learning.
           </h2>
-          <p className="mt-4 text-(--color-muted)">
-            Keep this concise and outcome-oriented once the final details are available.
-          </p>
         </motion.div>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {education.map((item, index) => (

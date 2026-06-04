@@ -16,7 +16,7 @@ export function Experience() {
         >
           <div>
             <p className="section-kicker">Work Experience</p>
-            <h2 className="mt-4 max-w-2xl text-3xl font-black tracking-tight text-(--color-foreground) sm:text-5xl">
+            <h2 className="mt-4 max-w-2xl text-lg leading-8 text-(--color-muted) sm:text-xl">
               Practical experience shipping reliable products.
             </h2>
           </div>

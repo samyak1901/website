@@ -4,15 +4,23 @@ export const profile = {
   location: "Canberra, ACT, Australia",
   availability: "Open to relevant software and AI opportunities",
   email: "samyak1901@gmail.com",
-  resumeUrl: "#",
+  resumeUrl: "downloads/Resume.pdf",
   summary:
-    "Software and AI Developer with an Honours degree in Advanced Computing, experienced across backend engineering, data platforms, and applied AI. I design production services, data pipelines, and AI-driven tools for biomedical research, public-health surveillance, and enterprise analytics.",
+    "An Honours degree in Advanced Computing, experienced across backend engineering, data platforms, and applied AI.",
 };
 
 export const socialLinks = [
-  { label: "LinkedIn", value: "samyak-jain", href: "https://linkedin.com/in/samyak-jain" },
+  {
+    label: "LinkedIn",
+    value: "samyak-jain-a20623107",
+    href: "https://linkedin.com/in/samyak-jain-a20623107",
+  },
   { label: "Email", value: profile.email, href: `mailto:${profile.email}` },
-  { label: "GitHub", value: "Add GitHub URL", href: "#" },
+  {
+    label: "GitHub",
+    value: "github.com/samyak1901",
+    href: "https://github.com/samyak1901",
+  },
 ];
 
 export const siteConfig = {
@@ -23,7 +31,6 @@ export const siteConfig = {
   links: {
     github: socialLinks[2].href,
     linkedin: socialLinks[0].href,
-    twitter: "#",
   },
 };
 
@@ -45,12 +52,21 @@ export const experiences: Experience[] = [
       "Develop backend services, data platforms, and applied AI systems for biomedical research, bioinformatics automation, and public-health surveillance.",
     highlights: [
       "Built a genomic cohort-builder platform with dynamic faceted filtering, real-time cohort summaries, distribution analytics, saved cohorts, and streaming exports.",
-      "Built Lumi, a multi-agent AI assistant for bioinformatics research with sub-agent delegation, parallel execution, tool orchestration, permission controls, and run-level auditability.",
+      "Built a multi-agent AI assistant for bioinformatics research with sub-agent delegation, parallel execution, tool orchestration, permission controls, and run-level auditability.",
       "Designed cross-session memory and context-management capabilities including durable fact extraction, relevance-based memory retrieval, and automatic context compaction.",
       "Designed a syndromic surveillance anomaly-detection engine using Z-score and EWMA models, adaptive thresholds, confidence scoring, demographic stratification, and geographic roll-up.",
       "Delivered secure multi-tenant REST APIs, asynchronous processing pipelines, and service-to-service integrations.",
     ],
-    technologies: ["Python", "TypeScript", "FastAPI", "PostgreSQL", "Redis", "Docker", "Kubernetes", "AWS"],
+    technologies: [
+      "Python",
+      "TypeScript",
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+    ],
   },
   {
     role: "Data Engineer / Data Analyst",
@@ -64,7 +80,14 @@ export const experiences: Experience[] = [
       "Analysed large customer and behavioural datasets and built dashboards and visualisations for technical and non-technical stakeholders.",
       "Supported ML and analytics workflows through data preparation, feature engineering, validation, and performance analysis.",
     ],
-    technologies: ["SQL", "Python", "Power BI", "Tableau", "Data Modelling", "Analytics"],
+    technologies: [
+      "SQL",
+      "Python",
+      "Power BI",
+      "Tableau",
+      "Data Modelling",
+      "Analytics",
+    ],
   },
   {
     role: "Undergraduate Research Assistant",
@@ -75,7 +98,12 @@ export const experiences: Experience[] = [
     highlights: [
       "Supported research into lightweight vehicle materials through applied machine-learning and predictive-modelling workflows.",
     ],
-    technologies: ["Machine Learning", "Predictive Modelling", "Python", "Research"],
+    technologies: [
+      "Machine Learning",
+      "Predictive Modelling",
+      "Python",
+      "Research",
+    ],
   },
 ];
 
@@ -100,7 +128,8 @@ export const education: Education[] = [
   },
   {
     degree: "Bachelor of Science",
-    institution: "International Centre for Applied Sciences - Manipal University",
+    institution:
+      "International Centre for Applied Sciences - Manipal University",
     period: "2016 - 2018",
     description:
       "Completed foundational computer science studies with a research thesis focused on computational alloy design and discovery.",
@@ -123,11 +152,24 @@ export const technicalSkills = [
   },
   {
     category: "AI & ML",
-    items: ["LLM agents", "Tool orchestration", "Multi-agent systems", "Semantic memory / retrieval", "Anomaly detection"],
+    items: [
+      "LLM agents",
+      "Tool orchestration",
+      "Multi-agent systems",
+      "Semantic memory / retrieval",
+      "Anomaly detection",
+    ],
   },
   {
     category: "Backend & APIs",
-    items: ["FastAPI", "Elysia", "REST microservices", "Pydantic", "SQLAlchemy", "Drizzle ORM"],
+    items: [
+      "FastAPI",
+      "Elysia",
+      "REST microservices",
+      "Pydantic",
+      "SQLAlchemy",
+      "Drizzle ORM",
+    ],
   },
   {
     category: "Data",
@@ -135,7 +177,15 @@ export const technicalSkills = [
   },
   {
     category: "Platform & Security",
-    items: ["Docker", "Kubernetes", "AWS", "Celery", "RabbitMQ", "Keycloak", "OPA"],
+    items: [
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Celery",
+      "RabbitMQ",
+      "Keycloak",
+      "OPA",
+    ],
   },
   {
     category: "BI & Visualisation",
@@ -150,35 +200,70 @@ export interface Project {
   github?: string;
   live?: string;
   impact: string;
+  image: string;
+  imageAlt: string;
 }
 
 export const projects: Project[] = [
   {
-    title: "Genomic Cohort Builder",
+    title: "Signal Desk",
     description:
-      "A research platform for creating, refining, saving, analysing, and exporting study cohorts from large-scale sequencing metadata. Includes dynamic faceted filtering, real-time summaries, distribution analytics, and streaming exports.",
-    technologies: ["TypeScript", "Python", "REST APIs", "PostgreSQL", "Analytics"],
-    github: "#",
-    live: "#",
-    impact: "Biomedical research discovery",
+      "An AI-powered investment research workspace that turns Substack reading lists, watchlists, and market data into structured research workflows. It includes a FastAPI backend, React frontend, background jobs, streaming job progress, setup checks, and clear handling for Substack cookie authentication.",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "Docker",
+      "Gemini",
+    ],
+    github: "https://github.com/samyak1901/substack",
+    impact: "Investment research automation",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    imageAlt:
+      "Analytics dashboard screens representing an investment research workspace",
   },
   {
-    title: "Lumi Multi-Agent AI Assistant",
+    title: "Dinner Decider",
     description:
-      "A multi-agent AI assistant for bioinformatics research with sub-agent delegation, parallel execution, tool orchestration, permission controls, full run-level auditability, and cross-session memory.",
-    technologies: ["LLM Agents", "Vercel AI SDK", "Tool Orchestration", "Semantic Memory", "TypeScript"],
-    github: "#",
-    live: "#",
-    impact: "AI-assisted research automation",
+      "A self-hosted household meal-planning app that helps families or roommates decide what to cook. It combines Gemini-powered dinner suggestions, dietary-aware fallbacks, voting, meal history, favourites, manual recipes, a weekly plan, and generated shopping lists.",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "Google ADK",
+      "React",
+      "TypeScript",
+      "SQLite",
+      "Alembic",
+    ],
+    github: "https://github.com/samyak1901/dinner-decider",
+    impact: "Practical household planning",
+    image:
+      "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80",
+    imageAlt:
+      "Dinner table with shared food representing household meal planning",
   },
   {
-    title: "Syndromic Surveillance Anomaly Detection",
+    title: "The Long Game",
     description:
-      "An anomaly-detection engine for public-health surveillance using Z-score and EWMA models, adaptive thresholds, confidence scoring, demographic stratification, and geographic roll-up.",
-    technologies: ["Python", "Anomaly Detection", "EWMA", "Z-score", "Data Pipelines"],
-    github: "#",
-    live: "#",
-    impact: "Public-health intelligence",
+      "A separate editorial writing site for my notes on investing, compounding, stock research, football, and long-term decision-making. The site keeps all written content in Markdown and presents stock pitches in a clean publication-style layout.",
+    technologies: [
+      "React",
+      "Vite",
+      "TypeScript",
+      "Markdown",
+      "GitHub Pages",
+      "CSS",
+    ],
+    github: "https://github.com/samyak1901/the-long-game",
+    live: "https://samyak1901.github.io/the-long-game/",
+    impact: "Personal writing and research archive",
+    image:
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80",
+    imageAlt:
+      "Notebook and laptop workspace representing long-form writing and research",
   },
 ];
 
