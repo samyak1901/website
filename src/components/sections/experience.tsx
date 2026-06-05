@@ -16,12 +16,10 @@ export function Experience() {
         >
           <div>
             <p className="section-kicker">Work Experience</p>
-            <h2 className="mt-4 max-w-2xl text-lg leading-8 text-(--color-muted) sm:text-xl">
-              Practical experience shipping reliable products.
-            </h2>
           </div>
           <p className="max-w-md text-(--color-muted)">
-            Experience across applied AI, backend services, data engineering, analytics, and research software.
+            Experience across applied AI, backend services, data engineering,
+            analytics, and research software.
           </p>
         </motion.div>
 
@@ -37,12 +35,20 @@ export function Experience() {
             >
               <div className="grid gap-5 md:grid-cols-[0.8fr_1.2fr] md:items-start">
                 <div>
-                  <p className="w-fit rounded-full border border-(--color-border) px-3 py-1 text-xs text-(--color-muted)">{experience.period}</p>
-                  <h3 className="mt-4 text-2xl font-bold text-(--color-foreground)">{experience.role}</h3>
-                  <p className="mt-1 text-(--color-accent)">{experience.company}</p>
+                  <p className="w-fit rounded-full border border-(--color-border) px-3 py-1 text-xs text-(--color-muted)">
+                    {experience.period}
+                  </p>
+                  <h3 className="mt-4 text-2xl font-bold text-(--color-foreground)">
+                    {experience.role}
+                  </h3>
+                  <p className="mt-1 text-(--color-accent)">
+                    {experience.company}
+                  </p>
                 </div>
                 <div>
-                  <p className="leading-relaxed text-(--color-muted)">{experience.description}</p>
+                  <p className="leading-relaxed text-(--color-muted)">
+                    {experience.description}
+                  </p>
                   <ul className="mt-5 space-y-3 text-sm leading-6 text-(--color-muted)">
                     {experience.highlights.map((highlight) => (
                       <li key={highlight} className="flex gap-3">

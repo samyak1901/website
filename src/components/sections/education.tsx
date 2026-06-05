@@ -8,16 +8,13 @@ export function Education() {
     <section id="education" className="section-shell">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacsity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
           transition={{ duration: 0.45 }}
           className="max-w-3xl"
         >
           <p className="section-kicker">Education</p>
-          <h2 className="mt-4 text-lg leading-8 text-(--color-muted) sm:text-xl">
-            Academic foundation and focused learning.
-          </h2>
         </motion.div>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {education.map((item, index) => (
