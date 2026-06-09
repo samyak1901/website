@@ -8,7 +8,7 @@ export function Education() {
     <section id="education" className="section-shell">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          initial={{ opacsity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
           transition={{ duration: 0.45 }}
