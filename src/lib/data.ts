@@ -206,6 +206,26 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Consilium",
+    description:
+      "A multi-agent LLM platform for equity and crypto research. A team of specialist agents — technical, sentiment, news, and fundamentals analysts — study a ticker with live market data, then debate it bull-vs-bear before a portfolio manager issues a rated Buy/Overweight/Hold/Underweight/Sell decision with full reasoning. Built on LangGraph with a FastAPI backend that streams the agents working live over SSE, a React/Vite frontend with an editable report library, multi-provider LLM support, and a learning loop that scores its own past calls against a benchmark.",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "LangGraph",
+      "React",
+      "TypeScript",
+      "Vite",
+      "Multi-LLM",
+    ],
+    github: "https://github.com/samyak1901/research",
+    impact: "Multi-agent investment research",
+    image:
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    imageAlt:
+      "Trading screens with market charts representing a multi-agent research platform",
+  },
+  {
     title: "Signal Desk",
     description:
       "An AI-powered investment research workspace that turns Substack reading lists, watchlists, and market data into structured research workflows. It includes a FastAPI backend, React frontend, background jobs, streaming job progress, setup checks, and clear handling for Substack cookie authentication.",
