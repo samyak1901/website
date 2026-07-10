@@ -49,13 +49,14 @@ export const experiences: Experience[] = [
     company: "Pacific Analytics Pty Ltd",
     period: "Dec 2024 - Present",
     description:
-      "Develop backend services, data platforms, and applied AI systems for biomedical research, bioinformatics automation, and public-health surveillance.",
+      "Build production AI, backend, automation, and data systems across biomedical research, public-health surveillance, and enterprise analytics.",
     highlights: [
-      "Built a genomic cohort-builder platform with dynamic faceted filtering, real-time cohort summaries, distribution analytics, saved cohorts, and streaming exports.",
-      "Built a multi-agent AI assistant for bioinformatics research with sub-agent delegation, parallel execution, tool orchestration, permission controls, and run-level auditability.",
-      "Designed cross-session memory and context-management capabilities including durable fact extraction, relevance-based memory retrieval, and automatic context compaction.",
-      "Designed a syndromic surveillance anomaly-detection engine using Z-score and EWMA models, adaptive thresholds, confidence scoring, demographic stratification, and geographic roll-up.",
-      "Delivered secure multi-tenant REST APIs, asynchronous processing pipelines, and service-to-service integrations.",
+      "Led the design and delivery of scalable AI-enabled platforms for production-ready operational workflows.",
+      "Developed secure, standards-aligned data platforms for governed analysis across distributed environments.",
+      "Architected 'Lumi', a multi-agent AI assistant featuring tool orchestration, memory, and auditable workflows.",
+      "Designed scalable data discovery and analytics capabilities for high-volume dataset processing and export.",
+      "Delivered distributed workflow and data-processing services with asynchronous execution and API integrations.",
+      "Implemented analytical and anomaly-detection pipelines using statistical modelling and adaptive thresholds.",
     ],
     technologies: [
       "Python",
@@ -73,12 +74,10 @@ export const experiences: Experience[] = [
     company: "smrtr",
     period: "Jan 2021 - Nov 2024",
     description:
-      "Progressed from Junior Data Analyst to Data Engineer, delivering data engineering, analytics, and automation solutions for enterprise clients and internal data products.",
+      "Delivered enterprise data engineering and automation solutions, progressing from Analyst to Engineer.",
     highlights: [
-      "Built and maintained data pipelines that transformed raw, multi-source data into reliable analytical datasets.",
-      "Developed SQL data models, stored procedures, and reporting layers for customer analytics and segmentation.",
-      "Analysed large customer and behavioural datasets and built dashboards and visualisations for technical and non-technical stakeholders.",
-      "Supported ML and analytics workflows through data preparation, feature engineering, validation, and performance analysis.",
+      "Built reliable SQL data pipelines and reporting layers for complex analytical datasets.",
+      "Analysed behavioural datasets and developed stakeholder dashboards supporting ML data workflows.",
     ],
     technologies: [
       "SQL",
@@ -94,10 +93,8 @@ export const experiences: Experience[] = [
     company: "The Australian National University",
     period: "Jul 2019 - May 2020",
     description:
-      "Developed machine-learning models for predictive modelling research into magnesium alloys with optimal mechanical properties.",
-    highlights: [
-      "Supported research into lightweight vehicle materials through applied machine-learning and predictive-modelling workflows.",
-    ],
+      "Developed ML models to predict mechanical properties of magnesium alloys for vehicle research.",
+    highlights: [],
     technologies: [
       "Machine Learning",
       "Predictive Modelling",
@@ -148,48 +145,68 @@ export const certifications = [
 export const technicalSkills = [
   {
     category: "Languages",
-    items: ["Python", "TypeScript", "SQL", "JavaScript", "Rust"],
+    items: ["Python", "TypeScript", "JavaScript", "SQL", "Rust", "Go"],
   },
   {
     category: "AI & ML",
     items: [
       "LLM agents",
-      "Tool orchestration",
-      "Multi-agent systems",
-      "Semantic memory / retrieval",
-      "Anomaly detection",
+      "Tool orchestration (Vercel AI SDK, CrewAI)",
+      "Multi-agent systems (LangGraph)",
+      "Frameworks (LangChain, Google ADK)",
+      "Prompt engineering",
+      "RAG retrieval",
+      "Semantic memory",
+      "Guardrails",
+      "Monitoring",
     ],
   },
   {
     category: "Backend & APIs",
     items: [
       "FastAPI",
-      "Elysia",
+      "Django",
       "REST microservices",
       "Pydantic",
       "SQLAlchemy",
+      "Elysia",
       "Drizzle ORM",
     ],
   },
   {
     category: "Data",
-    items: ["PostgreSQL", "ClickHouse", "Redis", "pandas", "NumPy"],
+    items: [
+      "PostgreSQL",
+      "ClickHouse",
+      "Redis",
+      "MongoDB",
+      "Parquet",
+      "Spark",
+      "Hadoop",
+    ],
   },
   {
-    category: "Platform & Security",
+    category: "Platform & DevOps",
     items: [
       "Docker",
       "Kubernetes",
-      "AWS",
       "Celery",
       "RabbitMQ",
-      "Keycloak",
-      "OPA",
+      "CI/CD",
+      "Automated testing",
     ],
+  },
+  {
+    category: "Security",
+    items: ["Keycloak", "JWT", "OAuth2", "RBAC", "OPA", "Audit logging"],
   },
   {
     category: "BI & Visualisation",
     items: ["Microsoft Power BI", "Tableau"],
+  },
+  {
+    category: "Cloud",
+    items: ["AWS", "GCP"],
   },
 ];
 
@@ -244,26 +261,6 @@ export const projects: Project[] = [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     imageAlt:
       "Analytics dashboard screens representing an investment research workspace",
-  },
-  {
-    title: "Dinner Decider",
-    description:
-      "A self-hosted household meal-planning app that helps families or roommates decide what to cook. It combines Gemini-powered dinner suggestions, dietary-aware fallbacks, voting, meal history, favourites, manual recipes, a weekly plan, and generated shopping lists.",
-    technologies: [
-      "Python",
-      "FastAPI",
-      "Google ADK",
-      "React",
-      "TypeScript",
-      "SQLite",
-      "Alembic",
-    ],
-    github: "https://github.com/samyak1901/dinner-decider",
-    impact: "Practical household planning",
-    image:
-      "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80",
-    imageAlt:
-      "Dinner table with shared food representing household meal planning",
   },
   {
     title: "The Long Game",
